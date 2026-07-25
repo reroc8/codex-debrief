@@ -1,0 +1,15 @@
+# 依赖 / 构建产物
+node_modules/
+__pycache__/
+*.pyc
+
+# 日志
+*.log
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 本地配置（含密钥，勿提交）
+.env
+*.local.conf

@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: 内联翻译器并校验语法
+        run: |
+          node build.js
+          node --check codex-lingbao.user.js
+      - name: 运行翻译器测试
+        run: node --test test-translator.js
